@@ -5,14 +5,24 @@ import { useGlobalContext } from "./context";
 
 function App() {
   const { isModalOpen, openModal } = useGlobalContext();
-
+  
   return (
     <>
-      <Navbar />
-      <Sidebar />
-      <Modal />
-    </>
-  );
-}
-
-export default App;
+    <Navbar />
+    <Sidebar />
+    <Modal />
+    
+    {
+      !isModalOpen && (
+        <main className="modal-controller">
+        <button className="btn btn-selector" onClick={openModal}>Apri modal</button>
+        </main>
+        )
+      }
+      
+      
+      </>
+      );
+    }
+    
+    export default App;

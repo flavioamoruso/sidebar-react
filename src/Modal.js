@@ -5,8 +5,15 @@ import { useGlobalContext } from "./context";
 const Modal = () => {
   const { isModalOpen, closeModal } = useGlobalContext();
   return (
-    <Wrapper> 
-    <h1>Hola</h1>
+    <Wrapper className={`${isModalOpen ? "show-modal-overlay" : ""}`}>
+      <section className={`${isModalOpen ? "show-modal modal" : "modal"}`}>
+        <div className="modal-content">
+          <h5>Contenuto del modal</h5>
+        </div>
+        <button className="btn btn-delete btn-modal" onClick={closeModal}>
+          <AiFillCloseCircle className="nav-icon" />
+        </button>
+      </section>
     </Wrapper>
   );
 };
