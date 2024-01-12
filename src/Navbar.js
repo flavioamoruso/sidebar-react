@@ -4,11 +4,35 @@ import { links, SocialBar } from "./links";
 import { useGlobalContext } from "./context";
 
 const Navbar = () => {
-  const { openSidebar } = useGlobalContext();
+  const date= useGlobalContext();
+  
 
   return (
     <nav className="nav">
-      <h3>Hola chico</h3>
+      <header className="nav-header">
+        <div className="nav-brand">
+          <h4>Navbar</h4>
+        </div>
+        <button className="btn nav-toggler">
+          <FaBars className="nav-icon"/>
+        </button>
+      </header>
+      <div className="links-container">
+        <ul className="nav-links">
+          {
+            links.map(link=>{
+              return <li key={link.id}>
+                <a href={link.url}>
+                  {link.text}
+                </a>
+              </li>
+            })
+          }
+        </ul>
+      </div>
+      <div className="social-links">
+        <SocialBar/>
+      </div>
     </nav>
   );
 };
