@@ -6,20 +6,20 @@ import { useGlobalContext } from "./context";
 const Sidebar = () => {
     const { isSidebarOpen, closeSidebar } = useGlobalContext();
     return (
-        <Wrapper>
+        <Wrapper className={ ` ${ isSidebarOpen ? 'show-sidebar' : '' } ` }>
         <div className="sidebar-content">
         <header>
         <div className="nav-brand">
         <h4>Sidebar</h4>
         </div>
-        <button className="btn btn-delete">
+        <button className="btn btn-delete" onClick={closeSidebar}>
         <AiFillCloseCircle className="nav-icon"/>
         </button>
         </header>
         <ul className="sidebar-links">
         {links.map((link)=>{
             return (
-                <li key={link.id} className="link">
+                <li key={link.id} className="link" onClick={closeSidebar}>
                 <a href={link.url}>
                 {link.text}
                 </a>
